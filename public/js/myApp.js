@@ -6,13 +6,9 @@ myApp
   .config(function() {
     // config
   })
-  .run(function() {
-    // initialize
-  });
-
-  myApp.controller('MyController', [ '$scope', function($scope) {
-    // controler body
-    $scope.myFirstName = 'Andrew';
-    $scope.myModel='Ready Player One';
+  .run(['$rootScope', 'APP_VERSION', function($rootScope, APP_VERSION) {
+    $rootScope.version= APP_VERSION;
   }]);
+
+
 
