@@ -4,7 +4,7 @@
       {
         id: 1,
         title: 'Starship Troopers',
-        author: 'Robert A. heinlein'
+        author: 'Robert A. Heinlein'
       },
       {
         id: 2,

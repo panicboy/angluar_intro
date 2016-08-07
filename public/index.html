@@ -24,9 +24,12 @@
     <div>
       {{ characterVersion }}
     </div>
-
+    <div class="search_book_container">
+      <label for="search_book">Search Book</label>
+      <input type="text" class="text" id="search_book" ng-model="searchBook">
+    </div>
     <ul class="books">
-      <li class="book" ng-repeat="book in BookService.getBooks()">
+      <li class="book" ng-repeat="book in BookService.getBooks() | filter: searchBook">
         <h4 class="book_title">{{ book.title }}</h4>
         <p class="book_author">{{ book.author }}</p>
       </li>
