@@ -46,7 +46,7 @@
       </fieldset>
 
       <ul class="movies">
-        <li class="movie" ng-repeat="movie in movies">
+        <li class="movie" ng-repeat="movie in movies | filter: year=1983">
         <h3 class="movie_title">{{ movie.title }}</h3>
         <h4 class="movie_year">{{ movie.year }}</h4>
         </li>
