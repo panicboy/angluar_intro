@@ -15,5 +15,5 @@ angular.module('myApp')
 
   $scope.mainCharacter=mainCharacter;
   $scope.characterVersion=CharacterVersionFactory.characterVersion();
-  $scope.books = BookService.getBooks();
+  $scope.BookService = BookService;
 }]);

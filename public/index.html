@@ -6,40 +6,56 @@
 </head>
 <body ng-app="myApp">
 
-<h1>{{ "Hello " + "Angular" }}</h1>
+  <h1>{{ "Hello " + "Angular" }}</h1>
 
-<div> {{ 2 + 3 }} </div>
+  <div> {{ 2 + 3 }} </div>
 
 
-<div ng-controller="MyController">
-  <h3>{{  myFirstName }}</h3>
+  <div ng-controller="MyController">
+    <h3>{{  myFirstName }}</h3>
 
-  <input type="text" ng-model="myModel">
-  <div>
-    {{ myModel }}
-  </div>
-  <div>
-    {{ mainCharacter }}
-  </div>
-  <div>
-    {{ characterVersion }}
-  </div>
-  <ul class="books">
-    <li class="book" ng-repeat="book in books">
-      <h4 class="book_title">{{ book.title }}</h4>
-      <p class="book_author">{{ book.author }}</p>
-    </li>
-  </ul>
-</div>
+    <input type="text" ng-model="myModel">
+    <div>
+      {{ myModel }}
+    </div>
+    <div>
+      {{ mainCharacter }}
+    </div>
+    <div>
+      {{ characterVersion }}
+    </div>
 
-<div class="version">{{ version }}</div>
+    <ul class="books">
+      <li class="book" ng-repeat="book in BookService.getBooks()">
+        <h4 class="book_title">{{ book.title }}</h4>
+        <p class="book_author">{{ book.author }}</p>
+      </li>
+    </ul>
+      <fieldset>
+        <div>
+          <label for="book_title">Title</label>
+          <input type="text" id="book_title" ng-model="new_book.title">
+        </div>
+        <div>
+          <label for="book_author">Author</label>
+          <input type="text" id="book_author" ng-model="new_book.author">
+        </div>
+        <div>
+          <button type="button" ng-click="BookService.addBook(new_book); new_book = null">Add Book</button>
+        </div>
+      </fieldset>
+    </div>
 
-<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js'></script>
-<script src="js/myApp.js"></script>
-<script src="js/controllers.js"></script>
-<script src="js/values.js"></script>
-<script src="js/constants.js"></script>
-<script src="js/factories.js"></script>
-<script src="js/services.js"></script>
+
+
+  <div class="version">{{ version }}</div>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js'></script>
+  <script src="js/myApp.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/values.js"></script>
+  <script src="js/constants.js"></script>
+  <script src="js/factories.js"></script>
+  <script src="js/services.js"></script>
 </body>
 </html>

@@ -1,6 +1,5 @@
-
-
-(function BookService(){
+(function() {
+  function BookService(){
     var books = [
       {
         id: 1,
@@ -42,6 +41,7 @@
   this.getBooks = function() {
     return books;
   };
+
   this.getBook = function(id) {
     return books.filter(function(book){
       return book.id === id;
@@ -50,6 +50,17 @@
       return book;
     });
   };
+
+  this.addBook = function(book) {
+    var id = books.reduce(function(highest, book){
+      return highest < book.id ? book.id : highest;
+    }, 1) +1;
+    books.push({
+      title: book.title,
+      author: book.author
+    });
+  };
+}
 
   angular.module('myApp')
   .service('BookService', BookService);
