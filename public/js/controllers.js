@@ -3,7 +3,11 @@ angular.module('myApp')
 .controller('MyController', [ '$scope',
   'mainCharacter',
   'CharacterVersionFactory',
-  function($scope, mainCharacter, CharacterVersionFactory) {
+  'BookService',
+  function($scope,
+    mainCharacter,
+    CharacterVersionFactory,
+    BookService) {
   // controler body
   $scope.myFirstName = 'Andrew';
 
@@ -11,4 +15,5 @@ angular.module('myApp')
 
   $scope.mainCharacter=mainCharacter;
   $scope.characterVersion=CharacterVersionFactory.characterVersion();
+  $scope.books = BookService.getBooks();
 }]);
