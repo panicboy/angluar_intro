@@ -24,10 +24,12 @@
   <div>
     {{ characterVersion }}
   </div>
-  <div>
-    <h1>Books</h1>
-    {{ books }}
-  </div>
+  <ul class="books">
+    <li class="book" ng-repeat="book in books">
+      <h4 class="book_title">{{ book.title }}</h4>
+      <p class="book_author">{{ book.author }}</p>
+    </li>
+  </ul>
 </div>
 
 <div class="version">{{ version }}</div>
