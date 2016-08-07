@@ -4,10 +4,12 @@ angular.module('myApp')
   'mainCharacter',
   'CharacterVersionFactory',
   'BookService',
+  'Movies',
   function($scope,
     mainCharacter,
     CharacterVersionFactory,
-    BookService) {
+    BookService,
+    Movies) {
   // controler body
   $scope.myFirstName = 'Andrew';
 
@@ -16,4 +18,9 @@ angular.module('myApp')
   $scope.mainCharacter=mainCharacter;
   $scope.characterVersion=CharacterVersionFactory.characterVersion();
   $scope.BookService = BookService;
+
+  $scope.movies = [];
+  Movies.getMovies().success(function(results){
+    $scope.movies = results;
+  });
 }]);
